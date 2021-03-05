@@ -23,10 +23,12 @@ function Shift_pixel (Color: number) {
 let strip: neopixel.Strip = null
 strip = neopixel.create(DigitalPin.P1, 60, NeoPixelMode.RGB)
 basic.forever(function () {
-    Display_neonlights()
-    Shift_pixel(neopixel.colors(NeoPixelColors.Blue))
-    Shift_pixel(neopixel.colors(NeoPixelColors.Green))
-    Shift_pixel(neopixel.colors(NeoPixelColors.Yellow))
-    Shift_pixel(neopixel.colors(NeoPixelColors.Indigo))
-    Shift_pixel(neopixel.colors(NeoPixelColors.Red))
+    if (pins.digitalReadPin(DigitalPin.P2) == 1) {
+        Display_neonlights()
+        Shift_pixel(neopixel.colors(NeoPixelColors.Blue))
+        Shift_pixel(neopixel.colors(NeoPixelColors.Green))
+        Shift_pixel(neopixel.colors(NeoPixelColors.Yellow))
+        Shift_pixel(neopixel.colors(NeoPixelColors.Indigo))
+        Shift_pixel(neopixel.colors(NeoPixelColors.Red))
+    }
 })
